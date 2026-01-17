@@ -1,0 +1,109 @@
+# ============================================================================
+# MOVE.TOML - File Konfigurasi Project Move
+# ============================================================================
+# File ini adalah "package manifest" untuk project Move, mirip seperti:
+# - package.json di Node.js/JavaScript
+# - Cargo.toml di Rust
+# - pom.xml di Java Maven
+#
+# File ini berisi informasi tentang:
+# 1. Metadata project (nama, versi, dll)
+# 2. Dependencies (library yang digunakan)
+# 3. Addresses (alamat untuk deployment)
+# ============================================================================
+
+# ============================================================================
+# [package] - INFORMASI DASAR PROJECT
+# ============================================================================
+# Section ini berisi metadata dasar tentang project kamu
+[package]
+name = "template"     # Nama project/package
+edition = "2024.beta" # Versi Move yang digunakan
+# - "2024.beta" = Move 2024 (fitur baru seperti enum)
+# - "legacy" = Move lama (pre-2024)
+# license = "MIT"                # Lisensi project (opsional)
+# authors = ["Your Name <email@example.com>"]  # Penulis (opsional)
+
+# ============================================================================
+# [dependencies] - LIBRARY/PACKAGE YANG DIGUNAKAN
+# ============================================================================
+# Section ini mendefinisikan package eksternal yang dibutuhkan project
+# Mirip seperti "dependencies" di package.json
+#
+# Sui Framework adalah library utama untuk development di Sui blockchain
+# Berisi modul-modul penting seperti:
+# - sui::object - untuk membuat dan mengelola object
+# - sui::transfer - untuk transfer ownership object
+# - sui::tx_context - untuk akses transaction context
+# - sui::random - untuk generate random number
+# - sui::event - untuk emit events
+# - dan masih banyak lagi...
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/testnet" }
+# Penjelasan parameter:
+# - git: URL repository GitHub
+# - subdir: folder dalam repository yang berisi package
+# - rev: branch/tag/commit yang digunakan
+#        "framework/testnet" = versi untuk testnet
+#        "framework/mainnet" = versi untuk mainnet (production)
+#        "framework/devnet"  = versi untuk devnet (development)
+
+# Contoh menambahkan dependency lain:
+# MyRemotePackage = { git = "https://github.com/user/repo.git", subdir = "packages/mypackage", rev = "main" }
+# LocalPackage = { local = "../path/to/local/package" }
+
+# ============================================================================
+# [addresses] - ALAMAT UNTUK DEPLOYMENT
+# ============================================================================
+# Section ini mendefinisikan "named addresses" yang akan digunakan dalam code
+#
+# Saat development/testing, gunakan "0x0" sebagai placeholder
+# Saat publish ke blockchain, alamat akan otomatis diganti dengan
+# alamat hasil deployment
+#
+# Named address dapat diakses dalam code Move dengan prefix @
+# Contoh: @template, @std, @sui
+[addresses]
+template = "0x0" # Alamat module ini (placeholder)
+# 0x0 = akan diganti saat publish
+
+# Alamat standar yang sudah ada:
+# - @std = "0x1" (Standard Library)
+# - @sui = "0x2" (Sui Framework)
+
+# Kamu bisa menambah named address custom:
+# my_admin = "0x1234...abcd"     # Alamat admin
+# treasury = "0x5678...efgh"     # Alamat treasury
+
+# ============================================================================
+# [dev-dependencies] - DEPENDENCIES KHUSUS TESTING
+# ============================================================================
+# Section ini untuk dependencies yang hanya digunakan saat testing
+# Aktif saat menjalankan `sui move test` atau `sui move build --dev`
+[dev-dependencies]
+# TestHelper = { local = "../test-helpers" }
+
+# ============================================================================
+# [dev-addresses] - ALAMAT KHUSUS TESTING
+# ============================================================================
+# Section ini untuk override addresses saat testing
+# Berguna untuk simulasi berbagai skenario dengan alamat berbeda
+[dev-addresses]
+# alice = "0xA11CE"              # Alamat test user Alice
+# bob = "0xB0B"                  # Alamat test user Bob
+
+# ============================================================================
+# TIPS & BEST PRACTICES
+# ============================================================================
+# 1. Selalu gunakan versi Sui Framework yang sesuai dengan target network
+#    - testnet -> rev = "framework/testnet"
+#    - mainnet -> rev = "framework/mainnet"
+#
+# 2. Untuk production, pertimbangkan menggunakan tag spesifik (e.g., "v1.0.0")
+#    agar versi dependency terkunci dan reproducible
+#
+# 3. Gunakan dev-dependencies untuk testing tools agar tidak masuk ke
+#    production build
+#
+# 4. Named addresses dengan 0x0 akan otomatis diganti saat `sui client publish`
+# ============================================================================
