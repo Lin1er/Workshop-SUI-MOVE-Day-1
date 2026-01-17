@@ -426,32 +426,6 @@ Setelah mengikuti penjelasan instruktur, coba tantangan berikut:
 8. ✏️ Buat fungsi `merge_cars()` untuk combine 2 mobil jadi 1 dengan stats lebih tinggi
 9. ✏️ Tambahkan cooldown system untuk upgrade engine
 
-## 🎓 Untuk Instruktur
-
-### Slide Deck Suggestions
-
-**Modul 1: Introduction to Sui (30 menit)**
-- Slide 1-5: Apa itu Sui? Kenapa Sui?
-- Slide 6-10: Object model vs Account model
-- Slide 11-15: Ownership & Transfer
-- Slide 16-20: Demo: Sui Explorer & CLI
-
-**Modul 2: Introduction to Move (45 menit)**
-- Slide 1-5: Move language overview
-- Slide 6-10: Syntax dasar & types
-- Slide 11-15: Structs & abilities
-- Slide 16-20: Functions & visibility
-- Slide 21-25: Enums & pattern matching
-- Slide 26-30: Testing
-- Slide 31-35: Live coding: Car NFT
-
-### Demo Flow
-1. Show Sui Explorer (5 min)
-2. Build & Test project (5 min)
-3. Deploy ke testnet (5 min)
-4. Create car & interact (10 min)
-5. Explain code line-by-line (20 min)
-
 ### Common Questions
 
 **Q: Kenapa pakai Move, bukan Solidity?**
@@ -487,8 +461,6 @@ Untuk instruktur lain yang ingin menggunakan materi ini:
 - [Sui Explorer (Testnet)](https://suiscan.xyz/testnet/home)
 - [Sui Wallet](https://chrome.google.com/webstore/detail/sui-wallet)
 - [Sui TypeScript SDK](https://github.com/MystenLabs/sui/tree/main/sdk/typescript)
-
-## 🐛 Troubleshooting
 
 ## 🐛 Troubleshooting
 
@@ -537,18 +509,11 @@ Update Sui CLI ke versi terbaru yang support Move 2024.
 - Check dokumentasi official
 - Explore lebih banyak examples di Sui GitHub
 
-## 📝 Feedback
-
-Feedback peserta sangat berharga! Setelah workshop:
-- Isi form feedback (akan dibagikan oleh instruktur)
-- Suggestions untuk improvement
-- Share pengalaman belajar Anda
-
 ---
 
 ## 📄 License & Credits
 
-Workshop material by [Your Name/Organization]
+Workshop material by Ulinuha
 
 Project ini dibuat untuk tujuan edukasi dan learning.
 
@@ -557,16 +522,6 @@ Project ini dibuat untuk tujuan edukasi dan learning.
 _"The best way to learn is by building"_
 
 ---
-
-### 📅 Workshop Timeline Suggestion
-
-**Total: ~2 jam**
-
-- 00:00-00:30 → Modul 1: Introduction to Sui
-- 00:30-01:15 → Modul 2: Introduction to Move  
-- 01:15-01:30 → Break ☕
-- 01:30-01:50 → Live Coding & Demo
-- 01:50-02:00 → Q&A & Closing
 
 ### 🎯 Next Steps After Workshop
 
@@ -579,4 +534,3 @@ _"The best way to learn is by building"_
 **Continue Learning:**
 - Workshop Day 2: Advanced Move Patterns
 - Workshop Day 3: Frontend Integration with Sui SDK
-- Workshop Day 4: Building Full DApp on Sui
